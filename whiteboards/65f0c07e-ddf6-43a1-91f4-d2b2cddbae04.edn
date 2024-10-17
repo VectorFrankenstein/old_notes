@@ -1,0 +1,397 @@
+{:blocks (
+{:block/content "```R\nmass_path = args[1]\nfile_list_path = args[2]\noutput_path = args[3]\npolarity = args[4]\nmake_plot = args[5]\nmaxScan = as.numeric(args[6])\nplot_path = args[7]\n```"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/properties 
+{}
+:block/uuid #uuid "65f0c089-ae25-4be4-91d3-5e4fee0e364e"} 
+{:block/created-at 1710276792880
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 0
+:scale [1 1]
+:pageId "65f0c089-ae25-4be4-91d3-5e4fee0e364e"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 218.3125]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "6af02e70-e0b2-11ee-b617-c722f5d3f44a"
+:noFill false
+:point [496 512]
+:parentId "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"
+:collapsedHeight 0
+:nonce 1710276739897}}
+:block/updated-at 1710276792880} 
+{:block/content "mass_path = args[1]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09f-77fa-422d-9ad3-c428048779e7"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09d-c1ff-4363-b0e4-359a47b9c821"} 
+{:block/content "file_list_path = args[2]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09d-c1ff-4363-b0e4-359a47b9c821"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09d-9a84-45f2-8bc0-bf72e1b0d03e"} 
+{:block/content "output_path = args[3]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09d-9a84-45f2-8bc0-bf72e1b0d03e"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09d-aff1-4c94-b339-c4e958668411"} 
+{:block/content "polarity = args[4]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09d-aff1-4c94-b339-c4e958668411"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09d-ffce-4db6-8aa6-bb05690a3fc9"} 
+{:block/content "make_plot = args[5]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09d-ffce-4db6-8aa6-bb05690a3fc9"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09d-e84a-40cc-a581-e7e9dd6c391b"} 
+{:block/content "maxScan = as.numeric(args[6])"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09d-e84a-40cc-a581-e7e9dd6c391b"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09d-69e8-47fb-9a59-b202a748111c"} 
+{:block/content "plot_path = args[7]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09d-69e8-47fb-9a59-b202a748111c"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09d-0153-4642-b135-1cbfce9bd9d1"} 
+{:block/content "mass_path = args[1]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0a0-a101-48d0-b958-26f5ae7dc83f"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09f-ad10-469f-bf6c-228f7a90207f"} 
+{:block/content "file_list_path = args[2]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09f-ad10-469f-bf6c-228f7a90207f"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09f-e651-4107-b27b-00d75a180062"} 
+{:block/content "output_path = args[3]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09f-e651-4107-b27b-00d75a180062"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09f-2062-47f9-8f02-92aa7bc5a6c7"} 
+{:block/content "polarity = args[4]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09f-2062-47f9-8f02-92aa7bc5a6c7"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09f-137b-48ed-ac97-5f602909fdbf"} 
+{:block/content "make_plot = args[5]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09f-137b-48ed-ac97-5f602909fdbf"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09f-7b30-4884-be41-dec17c2fbee1"} 
+{:block/content "maxScan = as.numeric(args[6])"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09f-7b30-4884-be41-dec17c2fbee1"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09f-9fbe-4cd7-97bb-37660099a9ca"} 
+{:block/content "plot_path = args[7]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c09f-9fbe-4cd7-97bb-37660099a9ca"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c09f-77fa-422d-9ad3-c428048779e7"} 
+{:block/content "mass_path = args[1]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0aa-a849-473f-826f-36da753bc5f8"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0a0-aa76-495f-8cf8-0a0c3aedf3a4"} 
+{:block/content "file_list_path = args[2]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0a0-aa76-495f-8cf8-0a0c3aedf3a4"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0a0-1d90-4de3-93b8-ff6aea9bc53b"} 
+{:block/content "output_path = args[3]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0a0-1d90-4de3-93b8-ff6aea9bc53b"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0a0-8aff-4abd-bb33-bd8e2252a8fb"} 
+{:block/content "polarity = args[4]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0a0-8aff-4abd-bb33-bd8e2252a8fb"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0a0-cb45-4b87-9680-cab2181d21e5"} 
+{:block/content "make_plot = args[5]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0a0-cb45-4b87-9680-cab2181d21e5"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0a0-b970-43b8-91f7-2e2b1536155f"} 
+{:block/content "maxScan = as.numeric(args[6])"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0a0-b970-43b8-91f7-2e2b1536155f"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0a0-7f49-4254-9e56-33f4e1413cb3"} 
+{:block/content "plot_path = args[7]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0a0-7f49-4254-9e56-33f4e1413cb3"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0a0-a101-48d0-b958-26f5ae7dc83f"} 
+{:block/content "mass_path = args[1]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-1ff5-44c1-8344-355f21071e8e"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0aa-c63b-4b0a-b8b0-73dc3b5f9ea0"} 
+{:block/content "file_list_path = args[2]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0aa-c63b-4b0a-b8b0-73dc3b5f9ea0"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0aa-b2f5-426e-935d-b8c1ffd7607c"} 
+{:block/content "output_path = args[3]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0aa-b2f5-426e-935d-b8c1ffd7607c"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0aa-a7c6-49c8-8839-2fbf53da0199"} 
+{:block/content "polarity = args[4]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0aa-a7c6-49c8-8839-2fbf53da0199"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0aa-a246-4ba7-b77c-2a4138dbd38c"} 
+{:block/content "make_plot = args[5]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0aa-a246-4ba7-b77c-2a4138dbd38c"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0aa-c2b5-46ab-95be-e9615bd43b0f"} 
+{:block/content "maxScan = as.numeric(args[6])"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0aa-c2b5-46ab-95be-e9615bd43b0f"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0aa-ef18-4a38-a62b-88e606f69cf9"} 
+{:block/content "plot_path = args[7]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0aa-ef18-4a38-a62b-88e606f69cf9"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0aa-a849-473f-826f-36da753bc5f8"} 
+{:block/content "mass_path = args[1]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-96f8-41f4-a22b-6a4d98231c8c"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-4d80-4923-9c3d-86ba664469d9"} 
+{:block/content "file_list_path = args[2]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-4d80-4923-9c3d-86ba664469d9"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-e3c6-47ca-b9f0-4d19d2cdc9bc"} 
+{:block/content "output_path = args[3]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-e3c6-47ca-b9f0-4d19d2cdc9bc"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-2128-4c93-b0d3-10b0e12e93a9"} 
+{:block/content "polarity = args[4]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-2128-4c93-b0d3-10b0e12e93a9"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-25c3-4328-a98c-c04082a3eaad"} 
+{:block/content "make_plot = args[5]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-25c3-4328-a98c-c04082a3eaad"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-d5a9-4d38-bbad-3cf978d092c4"} 
+{:block/content "maxScan = as.numeric(args[6])"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-d5a9-4d38-bbad-3cf978d092c4"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-08ab-4705-9e44-eb0b7d9d5bea"} 
+{:block/content "plot_path = args[7]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-08ab-4705-9e44-eb0b7d9d5bea"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-1ff5-44c1-8344-355f21071e8e"} 
+{:block/content "mass_path = args[1]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-e65a-44ac-9186-8040a8dbf136"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-9822-4819-9dc2-1c4a0f934e35"} 
+{:block/content "file_list_path = args[2]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-9822-4819-9dc2-1c4a0f934e35"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-00cb-4ef3-9269-45b0a88542ce"} 
+{:block/content "output_path = args[3]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-00cb-4ef3-9269-45b0a88542ce"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-2aee-420d-9ef5-0c398c004e49"} 
+{:block/content "polarity = args[4]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-2aee-420d-9ef5-0c398c004e49"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-3fcd-4a01-b4f5-0bacafa0633a"} 
+{:block/content "make_plot = args[5]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-3fcd-4a01-b4f5-0bacafa0633a"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-a847-4cde-a0e5-d156f87ed71a"} 
+{:block/content "maxScan = as.numeric(args[6])"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-a847-4cde-a0e5-d156f87ed71a"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-d179-413a-a226-9855de05e216"} 
+{:block/content "plot_path = args[7]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-d179-413a-a226-9855de05e216"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-96f8-41f4-a22b-6a4d98231c8c"} 
+{:block/content "mass_path = args[1]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c089-ae25-4be4-91d3-5e4fee0e364e"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-a5a7-4854-9bb1-c75e94ad6314"} 
+{:block/content "file_list_path = args[2]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-a5a7-4854-9bb1-c75e94ad6314"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-05ac-4c67-a546-a412f92eb9b6"} 
+{:block/content "output_path = args[3]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-05ac-4c67-a546-a412f92eb9b6"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-4e8e-4a29-9fc3-52e76c3becdd"} 
+{:block/content "polarity = args[4]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-4e8e-4a29-9fc3-52e76c3becdd"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-6e59-47e4-ae98-95a24ba6707c"} 
+{:block/content "make_plot = args[5]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-6e59-47e4-ae98-95a24ba6707c"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-0f7d-4c31-b0a8-79f39f4a42f6"} 
+{:block/content "maxScan = as.numeric(args[6])"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-0f7d-4c31-b0a8-79f39f4a42f6"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-16e2-4017-9b1e-44e83a996d1e"} 
+{:block/content "plot_path = args[7]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65f0c0ab-16e2-4017-9b1e-44e83a996d1e"}
+:block/parent 
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"}
+:block/uuid #uuid "65f0c0ab-e65a-44ac-9186-8040a8dbf136"})
+:pages (
+{:block/uuid #uuid "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"
+:block/properties 
+{:ls-type :whiteboard-page
+:logseq.tldraw.page 
+{:id "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"
+:name "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"
+:bindings 
+{}
+:nonce 1
+:assets []
+:shapes-index ("6af02e70-e0b2-11ee-b617-c722f5d3f44a")}}
+:block/updated-at 1710276792880
+:block/created-at 1710276734779
+:block/type "whiteboard"
+:block/name "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"
+:block/original-name "65f0c07e-ddf6-43a1-91f4-d2b2cddbae04"})}

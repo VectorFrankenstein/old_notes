@@ -1,0 +1,2 @@
+- What does the new keyword Nim do?
+	-

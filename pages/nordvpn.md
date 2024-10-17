@@ -1,0 +1,3 @@
+- `nordvpn login --callback "nordvpn://link"`
+- `sudo nordvpn set meshnet on`
+- had to fiddle with the traffic allowance but it did end up working

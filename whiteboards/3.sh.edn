@@ -1,0 +1,555 @@
+{:blocks (
+{:block/created-at 1711932153141
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 9
+:scale [1 1]
+:pageId "65de6336-84d6-4f9d-bc8b-d2f7f5b60854"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 152.9999733015129]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "39648470-d5c0-11ee-a283-998db51cf974"
+:noFill false
+:isLocked false
+:point [1352 1152]
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:collapsedHeight 0
+:nonce 1709073207617}}
+:block/updated-at 1711932153141} 
+{:block/created-at 1709072883941
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:stroke ""
+:index 7
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "line"
+:strokeType "line"
+:strokeWidth 1
+:opacity 1
+:label ""
+:id "5e9ef692-d5bf-11ee-a283-998db51cf974"
+:fontWeight 400
+:noFill true
+:point [2100.73 765.16]
+:fontSize 20
+:handles 
+{:start 
+{:id "start"
+:canBind true
+:point [0 0]
+:bindingId "5e9ef690-d5bf-11ee-a283-998db51cf974"}
+:end 
+{:id "end"
+:canBind true
+:point [3.27 298.84]
+:bindingId nil}}
+:decorations 
+{:end "arrow"}
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:nonce 1709072839957
+:italic false}}
+:block/updated-at 1709072883941} 
+{:block/content "```bash\n#!/bin/bash\nwhile getopts i:p:s:n: opt; do\n  case ${opt} in\n    i ) INPUT_FILE=${OPTARG};;\n    p ) PROJECT_NAME=${OPTARG};;\n    s ) SPECIES=${OPTARG};;\n    n ) PHENO=${OPTARG};;\n    \\? ) echo \"Usage: gwas2gene.sh [-i] INPUT_FILE [-p] PROJECT_NAME [-s] SPECIES [-n] Phenotype file\"\n      ;;\n  esac\ndone\n\n#INPUT_FILE=$1\n#PHENO=$2\n#PROJECT_NAME=${3:-\"default_project\"}\n#JOBS=${4:-4}\n\n# Comments by Rijan: The following lines simply re-iterate the variables and does nothing else. This is useless.\necho \"${SPECIES}\"\necho \"${PHENO}\"\necho \"${INPUT_FILE}\"\necho \"${PROJECT_NAME}\"\n\n\n\n\nif  [ \"${SPECIES}\" = \"SViridis\" ];\nthen\nSPECIES=\"Setaria\";\nfi\n\nif [ \"${SPECIES}\" = \"Sbicolor\" ] || [ \"${SPECIES}\" = \"Setaria\" ] || [ \"${SPECIES}\" = \"Zmays\" ]; \nthen\necho \"Thank you, G2g is now running on ${SPECIES}!!\"; \nelse\necho \"You did not input the species correctly.\" && exit 0;\nfi\n\n\n# The following lines make no sense whatsoever from a design perspective. These are hardlinked paths that should not be here.\nBASE_DIR=\"~/panvar/${SPECIES}\"\nPROGRAM_DIR=\"~/panvar/universal_species\"\nCURRENT_DIR=$PWD\n\n\nwhile read -r SNP_START SNP_LOCATION; do\nbash ${PROGRAM_DIR}/scripts/1.gene_region_finder.sh ${SNP_START} ${SNP_LOCATION} ${PROJECT_NAME} ${SPECIES} &\ndone < ${INPUT_FILE}\nwait\n\nRscript ${PROGRAM_DIR}/scripts/2.gene_region_to_gene_lists_${SPECIES}.R ${PROJECT_NAME} --save\n\n##Clean up outputs\nsed -i 's/\"g' ${CURRENT_DIR}/${PROJECT_NAME}/working/gene_lists_only_by_region/*.region # these region files are made by the rscript above.\n\n\n##launch gene finders\n\n\nfor region_list in  ${CURRENT_DIR}/${PROJECT_NAME}/working/gene_lists_only_by_region/*.region; do\nbash ${PROGRAM_DIR}/scripts/3.gene_diversity_finder_g2g_${SPECIES}.sh $region_list ${PROJECT_NAME} ${SPECIES}&\ndone\nwait\n\nfor file in ${CURRENT_DIR}/${PROJECT_NAME}/results/gene_hits/*/*_impactful_gene_hits.txt; do\nsed -i -e 's/0|0/0/g' -e 's/0|1/1/g' -e 's/1|1/2/g' $file\ndone\n\n##Clean up\n\nmkdir -p ${CURRENT_DIR}/${PROJECT_NAME}/logs\nmv ${CURRENT_DIR}/${PROJECT_NAME}/*log ${CURRENT_DIR}/${PROJECT_NAME}/logs/.\n\n\n##Generate outputs\ncd  ${CURRENT_DIR}/${PROJECT_NAME}/results/gene_hits/\n\n##Remove empty SNP folders before processing\n\nfor file in */*impactful_gene_hits.txt; do\nLINECOUNT=`wc -l ${file} | cut -f1 -d' '`\n\nif [[ $LINECOUNT == 1 ]]; then\n   echo \"${file%%/*} is empty.\"\n        mkdir -p ../no_impactful_hits\n        mv \"${file%%/*}\" ../no_impactful_hits/.\nfi\ndone\n\n##Output script\nln -s ${BASE_DIR}/resources ${CURRENT_DIR}/${PROJECT_NAME}\necho $PHENO\nRscript --vanilla ${PROGRAM_DIR}/scripts/GWAS2Gene_Pheno_Routputs_${SPECIES}_v3.R ${PHENO} ${CURRENT_DIR} ${PROJECT_NAME}\ncd $BASE_DIR\n\necho \"Run complete.\"\n\n```"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "66062444-2d01-40be-9f01-73fbf1ae377b"}
+:block/parent 
+{:block/uuid #uuid "66062444-2d01-40be-9f01-73fbf1ae377b"}
+:block/properties 
+{}
+:block/uuid #uuid "65de5f7f-0212-4223-9e4c-62ceecc7ad55"} 
+{:block/created-at 1709072629516
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:isSizeLocked false
+:stroke ""
+:rotation 0
+:borderRadius 0
+:index 4
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "text"
+:size [400 96]
+:fontFamily "var(--ls-font-family)"
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "c28961f0-d5be-11ee-a283-998db51cf974"
+:padding 4
+:fontWeight 400
+:noFill true
+:point [1696 504]
+:lineHeight 1.2
+:fontSize 20
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:nonce 1709072578532
+:italic false
+:text "These file are iterating through the files that sit in the the `test<n>/regions/` files."}}
+:block/updated-at 1709072629516} 
+{:block/content "old `script 3` (specified for species but does not need to be)\n```bash\n#!/bin/bash\n\n##Import user generated list of genes / get number of lines to be tested\nGENE_LIST=$1\nFOLDER_NAME=${2:-\"batch_results\"}\nSNP_REGION_NAME=${GENE_LIST%_just_genes.region}\nOUTPUT_NAME=${SNP_REGION_NAME##*/}\nSPECIES=$3\n\nBASE_DIR=\"/shares/tmockler_share/private/Data/G2g/${SPECIES}\"\nCURRENT_DIR=$PWD\n\n##Make results directory\n\nmkdir -p ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits\nmkdir -p ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME\nmkdir -p ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/individual_files_impactful\nmkdir -p ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/individual_files_full\n\n##Read through list of genes, check if gene exists / if yes, process, if no skip.\n\nwhile read GENE_ID; do\n\nif grep -Fq \"$GENE_ID\" ${BASE_DIR}/resources/BAP_gene_locations/Sbicolor_313_v3_1_gene_locations_extended.txt \nthen\n\n##Get relevant info for gene of interest\n\ngene_info=$(grep ${GENE_ID} ${BASE_DIR}/resources/BAP_gene_locations/Sbicolor_313_v3_1_gene_locations_extended.txt)\n\ngene_cord=$(echo ${gene_info} | awk '{print $1\":\"$2\"-\"$3}')\n\nchr=$(echo ${gene_info} | awk '{print $1}')\n\n##Extract VCF info using tabix\n\ntabix -h ${BASE_DIR}/resources/BAP_vcf_files/TERRA_final_${chr}.snpEff.vcf.gz ${gene_cord} | grep -E \"#|${GENE_ID}\" > ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${GENE_ID}_temp.vcf\n\n##Convert to single line file\n\ncat ${BASE_DIR}/resources/vcf.header > ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/temp_${GENE_ID}_diversity_output.txt\n\ncat  ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${GENE_ID}_temp.vcf | ${BASE_DIR}/resources/scripts/vcfEffOnePerLine.pl | grep -E \"#|${GENE_ID}\" | \\\njava -jar ${BASE_DIR}/resources/scripts/SnpSift.jar extractFields - CHROM POS \"ANN[*].FEATUREID\" REF ALT \"ANN[*].EFFECT\" \"ANN[*].AA\" \"ANN[*].IMPACT\" \"GEN[*].GT\" | \\\ngrep Chr >> ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/temp_${GENE_ID}_diversity_output.txt\n\n##Remove multiple/non-relvant gene snps\n\ngrep -v \"-\" ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/temp_${GENE_ID}_diversity_output.txt > ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/individual_files_full/${GENE_ID}_diversity_output.txt\n\n\n#Clean up\nrm  ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${GENE_ID}_temp.vcf\nrm  ${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/temp_${GENE_ID}_diversity_output.txt\n\n#Exhange allele scores for numeric values\n\nsed -i 's|0\\/0|0|g; s|0\\/1|1|g; s|1\\/1|2|g; s|.\\/.|NA|g' ${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/individual_files_full/${GENE_ID}_diversity_output.txt \n\n##For filtering only on meaningful variants\n\ngrep -E 'CHROM|LOW|MODERATE|HIGH' ${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/individual_files_full/${GENE_ID}_diversity_output.txt > ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/individual_files_impactful/${GENE_ID}_diversity_output_impactful.txt\n \nfi\ndone < $GENE_LIST\n\n##Merge the generated lists into one full file for each time\ncat ${BASE_DIR}/resources/vcf.header > ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${OUTPUT_NAME}_all_gene_hits.txt\n\nfor file in ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/individual_files_full/*.txt; do\ngrep -v CHROM ${file} >> ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/unsorted_${OUTPUT_NAME}.txt\ndone\nsort -k1,1 -k2,2 >> ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${OUTPUT_NAME}_all_gene_hits.txt < ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/unsorted_${OUTPUT_NAME}.txt\nsed -i 's/.v3.1//g' ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${OUTPUT_NAME}_all_gene_hits.txt\n\n#Write file for merged meaningful mutations\n\ngrep -E 'CHROM|LOW|MODERATE|HIGH' ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${OUTPUT_NAME}_all_gene_hits.txt > ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${OUTPUT_NAME}_impactful_gene_hits.txt\n\n#Clean up \nrm ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/unsorted_${OUTPUT_NAME}.txt\n\n```"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65de613d-c2f0-4d5f-9f56-928ad5268cf4"}
+:block/parent 
+{:block/uuid #uuid "66062444-2d01-40be-9f01-73fbf1ae377b"}
+:block/properties 
+{}
+:block/uuid #uuid "65de61f3-96f3-4dfd-b0ad-f2df670251b8"} 
+{:block/created-at 1709072820531
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:stroke ""
+:index 5
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "line"
+:strokeType "line"
+:strokeWidth 1
+:opacity 1
+:label ""
+:id "f11b8842-d5be-11ee-a283-998db51cf974"
+:fontWeight 400
+:noFill true
+:point [1661.14 765.16]
+:fontSize 20
+:handles 
+{:start 
+{:id "start"
+:canBind true
+:point [0.17 0]
+:bindingId nil}
+:end 
+{:id "end"
+:canBind true
+:point [0 166.84]
+:bindingId "3d3271d1-d5bf-11ee-a283-998db51cf974"}}
+:decorations 
+{:end "arrow"}
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:nonce 1709072656691
+:italic false}}
+:block/updated-at 1709072820531} 
+{:block/created-at 1709072420043
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:rotation 0
+:collapsed false
+:borderRadius 8
+:index 0
+:scale [1 1]
+:pageId "65de5f7f-0212-4223-9e4c-62ceecc7ad55"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [1200 2311.78125]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "00d7cfb0-d5be-11ee-a283-998db51cf974"
+:noFill false
+:point [120 -400]
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:collapsedHeight 0
+:nonce 1709072253564}}
+:block/updated-at 1709072420043} 
+{:block/created-at 1709072480372
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:stroke ""
+:index 1
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "line"
+:strokeType "line"
+:strokeWidth 1
+:opacity 1
+:label ""
+:id "449d0df0-d5be-11ee-a283-998db51cf974"
+:fontWeight 400
+:noFill true
+:point [1320 696]
+:fontSize 20
+:handles 
+{:start 
+{:id "start"
+:canBind true
+:point [0 0]}
+:end 
+{:id "end"
+:canBind true
+:point [272 0]
+:bindingId nil}}
+:decorations 
+{:start nil
+:end "arrow"}
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:nonce 1709072367049
+:italic false}}
+:block/updated-at 1709072480372} 
+{:block/created-at 1711932365887
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:stroke ""
+:index 10
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "line"
+:strokeType "line"
+:strokeWidth 1
+:opacity 1
+:label ""
+:id "42a21662-d5c0-11ee-a283-998db51cf974"
+:fontWeight 400
+:noFill true
+:point [1756 1191.61]
+:fontSize 20
+:handles 
+{:start 
+{:id "start"
+:canBind true
+:point [195 1.14]
+:bindingId "4d4fb311-d5c0-11ee-a283-998db51cf974"}
+:end 
+{:id "end"
+:canBind true
+:point [0 0]
+:bindingId "466b0541-d5c0-11ee-a283-998db51cf974"}}
+:decorations 
+{:end "arrow"}
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:nonce 1709073223487
+:italic false}}
+:block/updated-at 1711932365887} 
+{:block/created-at 1709072823372
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:rotation 0
+:collapsed false
+:borderRadius 8
+:index 3
+:scale [1 1]
+:pageId "65de603d-215d-4811-8936-6adfe68082a6"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [1016 132.15625]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "70f08ee0-d5be-11ee-a283-998db51cf974"
+:noFill false
+:point [1592 632]
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:collapsedHeight 0
+:nonce 1709072441537}}
+:block/updated-at 1709072823372} 
+{:block/content "{{embed ((65de5f07-b618-41df-8bfd-3f1bd8499dff))}}"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65de61f3-96f3-4dfd-b0ad-f2df670251b8"}
+:block/parent 
+{:block/uuid #uuid "66062444-2d01-40be-9f01-73fbf1ae377b"}
+:block/uuid #uuid "65de6336-84d6-4f9d-bc8b-d2f7f5b60854"} 
+{:block/created-at 1709072493309
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:isSizeLocked true
+:stroke ""
+:borderRadius 0
+:index 2
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "text"
+:size [206 34]
+:fontFamily "var(--ls-font-family)"
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "51e6d950-d5be-11ee-a283-998db51cf974"
+:padding 4
+:fontWeight 400
+:noFill true
+:point [1360 592]
+:lineHeight 1.2
+:fontSize 20
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:nonce 1709072389392
+:italic false
+:text "Relevance for step 3"}}
+:block/updated-at 1709072493309} 
+{:block/content "```bash\nfor region_list in  ${CURRENT_DIR}/${PROJECT_NAME}/working/gene_lists_only_by_region/*.region; do\nbash ${PROGRAM_DIR}/scripts/3.gene_diversity_finder_g2g_${SPECIES}.sh $region_list ${PROJECT_NAME} ${SPECIES}&\ndone\n```"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65de5f7f-0212-4223-9e4c-62ceecc7ad55"}
+:block/parent 
+{:block/uuid #uuid "66062444-2d01-40be-9f01-73fbf1ae377b"}
+:block/properties 
+{}
+:block/uuid #uuid "65de603d-215d-4811-8936-6adfe68082a6"} 
+{:block/content "Sample region file\n```txt\nChr02 6115430 6176639\n```"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65de603d-215d-4811-8936-6adfe68082a6"}
+:block/parent 
+{:block/uuid #uuid "66062444-2d01-40be-9f01-73fbf1ae377b"}
+:block/properties 
+{}
+:block/uuid #uuid "65de613d-c2f0-4d5f-9f56-928ad5268cf4"} 
+{:block/created-at 1711932365885
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:rotation 0
+:collapsed false
+:borderRadius 8
+:index 8
+:scale [1 1]
+:pageId "65de61f3-96f3-4dfd-b0ad-f2df670251b8"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [1464 2104.781094652945]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "62ca50c0-d5bf-11ee-a283-998db51cf974"
+:noFill false
+:point [1952 1032]
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:collapsedHeight 0
+:nonce 1709072847595}}
+:block/updated-at 1711932365885} 
+{:block/created-at 1709072820531
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 6
+:scale [1 1]
+:pageId "65de613d-c2f0-4d5f-9f56-928ad5268cf4"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 109.78125]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "0884e120-d5bf-11ee-a283-998db51cf974"
+:noFill false
+:point [1408 936]
+:parentId "65de5f12-9cd4-48bd-9a13-44c8577f7300"
+:collapsedHeight 0
+:nonce 1709072696644}}
+:block/updated-at 1709072820531} 
+{:block/created-at 1711932237615
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:stroke ""
+:index 11
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "line"
+:strokeType "line"
+:strokeWidth 1
+:opacity 1
+:label ""
+:id "ca29f252-efc0-11ee-a477-159b52185769"
+:fontWeight 400
+:noFill true
+:point [1488 1920]
+:fontSize 20
+:handles 
+{:start 
+{:id "start"
+:canBind true
+:point [464 0]}
+:end 
+{:id "end"
+:canBind true
+:point [0 208]
+:bindingId nil}}
+:decorations 
+{:end "arrow"}
+:parentId "66062444-2d01-40be-9f01-73fbf1ae377b"
+:nonce 1711932180103
+:italic false}}
+:block/updated-at 1711932237615} 
+{:block/content "Order of Operations:\n1. See if the gene exits in the supplied locations file\n`if grep -Fq \"$GENE_ID\" ${BASE_DIR}/resources/BAP_gene_locations/Sbicolor_313_v3_1_gene_locations_extended.txt`\n\n2. Make it possible for tabix to search the space for that gene\n`tabix -h ${BASE_DIR}/resources/BAP_vcf_files/TERRA_final_${chr}.snpEff.vcf.gz ${gene_cord} | grep -E \"#|${GENE_ID}\" > ${CURRENT_DIR}/${FOLDER_NAME}/results/gene_hits/$OUTPUT_NAME/${GENE_ID}_temp.vcf`"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "65de6336-84d6-4f9d-bc8b-d2f7f5b60854"}
+:block/parent 
+{:block/uuid #uuid "66062444-2d01-40be-9f01-73fbf1ae377b"}
+:block/properties 
+{}
+:block/uuid #uuid "660a031e-4031-47d9-86c2-b5b9ec49fc84"} 
+{:block/created-at 1711932375469
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:rotation 0
+:collapsed false
+:borderRadius 8
+:index 12
+:scale [1 1]
+:pageId "660a031e-4031-47d9-86c2-b5b9ec49fc84"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [952 212.49986804945416]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "cff89c40-efc0-11ee-a477-159b52185769"
+:noFill false
+:point [896 2136]
+:parentId "66062444-2d01-40be-9f01-73fbf1ae377b"
+:collapsedHeight 0
+:nonce 1711932190019}}
+:block/updated-at 1711932375469})
+:pages (
+{:block/uuid #uuid "66062444-2d01-40be-9f01-73fbf1ae377b"
+:block/properties 
+{:ls-type :whiteboard-page
+:logseq.tldraw.page 
+{:id "66062444-2d01-40be-9f01-73fbf1ae377b"
+:name "3.sh"
+:bindings 
+{:4d4fb311-d5c0-11ee-a283-998db51cf974 
+{:id "4d4fb311-d5c0-11ee-a283-998db51cf974"
+:type "line"
+:fromId "42a21662-d5c0-11ee-a283-998db51cf974"
+:toId "62ca50c0-d5bf-11ee-a283-998db51cf974"
+:handleId "start"
+:point [0.5 0.08]
+:distance 4}
+:42a21660-d5c0-11ee-a283-998db51cf974 
+{:id "42a21660-d5c0-11ee-a283-998db51cf974"
+:type "line"
+:fromId "42a21662-d5c0-11ee-a283-998db51cf974"
+:toId "62ca50c0-d5bf-11ee-a283-998db51cf974"
+:handleId "start"
+:point [0.5 0.5]
+:distance 4}
+:4b2108b1-d5bf-11ee-a283-998db51cf974 
+{:id "4b2108b1-d5bf-11ee-a283-998db51cf974"
+:type "line"
+:fromId "f11b8842-d5be-11ee-a283-998db51cf974"
+:toId "70f08ee0-d5be-11ee-a283-998db51cf974"
+:handleId "start"
+:point [0.48 0.49]
+:distance 4}
+:5e9ef690-d5bf-11ee-a283-998db51cf974 
+{:id "5e9ef690-d5bf-11ee-a283-998db51cf974"
+:type "line"
+:fromId "5e9ef692-d5bf-11ee-a283-998db51cf974"
+:toId "70f08ee0-d5be-11ee-a283-998db51cf974"
+:handleId "start"
+:point [0.5 0.5]
+:distance 4}
+:47eb3ca1-d5c0-11ee-a283-998db51cf974 
+{:id "47eb3ca1-d5c0-11ee-a283-998db51cf974"
+:type "line"
+:fromId "42a21662-d5c0-11ee-a283-998db51cf974"
+:toId "62ca50c0-d5bf-11ee-a283-998db51cf974"
+:handleId "start"
+:point [0.5 0.18]
+:distance 4}
+:466b0541-d5c0-11ee-a283-998db51cf974 
+{:id "466b0541-d5c0-11ee-a283-998db51cf974"
+:type "line"
+:fromId "42a21662-d5c0-11ee-a283-998db51cf974"
+:toId "39648470-d5c0-11ee-a283-998db51cf974"
+:handleId "end"
+:point [0.94 0.27]
+:distance 4}
+:90e652c1-da4b-11ee-9821-b1386f5ce357 
+{:id "90e652c1-da4b-11ee-9821-b1386f5ce357"
+:type "line"
+:fromId "42a21662-d5c0-11ee-a283-998db51cf974"
+:toId "62ca50c0-d5bf-11ee-a283-998db51cf974"
+:handleId "start"
+:point [0.5 0.14]
+:distance 4}
+:42a21661-d5c0-11ee-a283-998db51cf974 
+{:id "42a21661-d5c0-11ee-a283-998db51cf974"
+:type "line"
+:fromId "42a21662-d5c0-11ee-a283-998db51cf974"
+:toId "39648470-d5c0-11ee-a283-998db51cf974"
+:handleId "end"
+:point [0.81 0.87]
+:distance 4}
+:3d3271d1-d5bf-11ee-a283-998db51cf974 
+{:id "3d3271d1-d5bf-11ee-a283-998db51cf974"
+:type "line"
+:fromId "f11b8842-d5be-11ee-a283-998db51cf974"
+:toId "0884e120-d5bf-11ee-a283-998db51cf974"
+:handleId "end"
+:point [0.63 0.82]
+:distance 4}
+:f11b8840-d5be-11ee-a283-998db51cf974 
+{:id "f11b8840-d5be-11ee-a283-998db51cf974"
+:type "line"
+:fromId "f11b8842-d5be-11ee-a283-998db51cf974"
+:toId "70f08ee0-d5be-11ee-a283-998db51cf974"
+:handleId "start"
+:point [0.5 0.5]
+:distance 4}}
+:nonce 1
+:assets []
+:shapes-index ("00d7cfb0-d5be-11ee-a283-998db51cf974" "449d0df0-d5be-11ee-a283-998db51cf974" "51e6d950-d5be-11ee-a283-998db51cf974" "70f08ee0-d5be-11ee-a283-998db51cf974" "c28961f0-d5be-11ee-a283-998db51cf974" "f11b8842-d5be-11ee-a283-998db51cf974" "0884e120-d5bf-11ee-a283-998db51cf974" "5e9ef692-d5bf-11ee-a283-998db51cf974" "62ca50c0-d5bf-11ee-a283-998db51cf974" "39648470-d5c0-11ee-a283-998db51cf974" "42a21662-d5c0-11ee-a283-998db51cf974" "ca29f252-efc0-11ee-a477-159b52185769" "cff89c40-efc0-11ee-a477-159b52185769")}}
+:block/journal? false
+:block/updated-at 1711932375469
+:block/created-at 1709072146032
+:block/type "whiteboard"
+:block/name "3.sh"
+:block/original-name "3.sh"})}
